@@ -45,3 +45,9 @@ push-b
 send
 ```
 
+
+***[git init]***
+
+```
+init
+```

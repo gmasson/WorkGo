@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# LoadGIT 1.0
-# https://github.com/gmasson/loadgit
+# GitGo 1.0
+# https://github.com/gmasson/gitgo
 
 # COLORS
 
@@ -13,41 +13,51 @@ bgred="\033[41;1;37m"
 bggreen="\033[42;1;37m"
 bgblue="\033[44;1;37m"
 
-it_is_color="\033[0m"
-
-
-echo ""
-echo -e "$blue LoadGIT 1.0 $it_is_color"
+fcolor="\033[0m"
 
 # ----------------------------------------
-# HELP
+# Commands
 # ----------------------------------------
 
-function help() {
+function status() {
   echo ""
-
-  echo -e "$bgblue Atalhos $it_is_color"
-  echo "----------------------------------------"
-  echo -e "$green atalho $it_is_color - Descrição do Atalho"
-
+  git status
   echo ""
-
-  echo -e "$bgblue Outras $it_is_color"
-  echo "----------------------------------------"
-  echo -e "$green exit $it_is_color - Sair do LoadGIT"
-
+  echo -e "$green OK $fcolor"
   menu
 }
 
-# ----------------------------------------
-# Comandos
-# ----------------------------------------
+function commit() {
+  echo ""
+  git commit -m "Update"
+  echo ""
+  echo -e "$green OK $fcolor"
+  menu
+}
 
-function init() {
+function pull() {
   echo ""
-  git init
+  git pull
   echo ""
-  echo -e "$green OK $it_is_color"
+  echo -e "$green OK $fcolor"
+  menu
+}
+
+function push() {
+  echo ""
+  git push origin master
+  echo ""
+  echo -e "$green OK $fcolor"
+  menu
+}
+
+function pushb() {
+  echo ""
+  read -p "Branch: " branch;
+  echo ""
+  git push origin $branch
+  echo ""
+  echo -e "$green OK $fcolor"
   menu
 }
 
@@ -58,26 +68,17 @@ function send() {
   git commit -m "Updates"
   git push origin master
   echo ""
-  echo -e "$green OK $it_is_color"
+  echo -e "$green OK $fcolor"
   menu
 }
 
-function status() {
+function init() {
   echo ""
-  git status
+  git init
   echo ""
-  echo -e "$green OK $it_is_color"
+  echo -e "$green OK $fcolor"
   menu
 }
-
-function pull() {
-  echo ""
-  git pull
-  echo ""
-  echo -e "$green OK $it_is_color"
-  menu
-}
-
 
 # ----------------------------------------
 # ...
@@ -85,15 +86,15 @@ function pull() {
 
 function error() {
   echo ""
-  echo -e "$red Oops, Invalid command, try again! $it_is_color"
+  echo -e "$red Oops, Invalid command, try again! $fcolor"
   echo "Make sure that the Caps Lock is enabled"
   menu
 }
 
 function out() {
   echo ""
-  echo "Thank you for using LoadGIT!"
-  echo -e "$red Closing [...] $it_is_color"
+  echo "Thank you for using GitGo!"
+  echo -e "$red Closing [...] $fcolor"
   echo ""
 }
 
@@ -109,10 +110,14 @@ menu() {
   case $pack in
     help) help ;;
     # Commands
-    init) init ;;
-    send) send ;;
-    status) status ;;
+    st) status ;;
+    add) add ;;
+    com) commit ;;
     pull) pull ;;
+    push) push ;;
+    push-b) pushb ;;
+    send) send ;;
+    init) init ;;
     # Exit Program
     exit) out ;;
     out) out ;;

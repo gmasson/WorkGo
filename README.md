@@ -4,42 +4,42 @@ Atalhos para comandos Git
 
 ### Documentação
 
-***git status***
+***[git status]***
 
 ```
 st
 ```
 
 
-***git commit -m "update"***
+***[git commit -m "update"]***
 
 ```
 com
 ```
 
 
-***git pull***
+***[git pull]***
 
 ```
 pull
 ```
 
 
-***git push origin master***
+***[git push origin master]***
 
 ```
 push
 ```
 
 
-***git push origin %*** - % = Exibe a opção de digitar a Branch para fazer o Push
+***[git push origin %]*** - % = Exibe a opção de digitar a Branch para fazer o Push
 
 ```
 push-b
 ```
 
 
-***git add --all*** + ***git commit -m "update"*** + ***git push origin master***
+***[git add --all]*** + ***[git commit -m "update"]*** + ***[git push origin master]***
 
 ```
 send

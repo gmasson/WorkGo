@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# GitGo 1.0
-# https://github.com/gmasson/gitgo
+# WorkGo 1.0
+# https://github.com/gmasson/WorkGo
 
 # COLORS
 
@@ -14,6 +14,10 @@ bggreen="\033[42;1;37m"
 bgblue="\033[44;1;37m"
 
 fcolor="\033[0m"
+
+# Server
+ipserv="188.226.184.45"
+# $ipserv="216.239.53.99"
 
 # ----------------------------------------
 # Commands
@@ -80,6 +84,14 @@ function init() {
   menu
 }
 
+function ssh() {
+  echo ""
+  ssh root@$ipserv
+  echo ""
+  echo -e "$green OK $fcolor"
+  menu
+}
+
 # ----------------------------------------
 # ...
 # ----------------------------------------
@@ -93,7 +105,7 @@ function error() {
 
 function out() {
   echo ""
-  echo "Thank you for using GitGo!"
+  echo "Thank you for using WorkGo!"
   echo -e "$red Closing [...] $fcolor"
   echo ""
 }
@@ -118,6 +130,7 @@ menu() {
     push-b) pushb ;;
     send) send ;;
     init) init ;;
+    ssh) ssh ;;
     # Exit Program
     exit) out ;;
     out) out ;;

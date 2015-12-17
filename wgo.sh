@@ -15,10 +15,6 @@ bgblue="\033[44;1;37m"
 
 fcolor="\033[0m"
 
-# Server
-ipserv="188.226.184.45"
-# $ipserv="216.239.53.99"
-
 # ----------------------------------------
 # Commands
 # ----------------------------------------
@@ -86,7 +82,7 @@ function init() {
 
 function ssh() {
   echo ""
-  ssh root@$ipserv
+  ssh root@216.239.53.99
   echo ""
   echo -e "$green OK $fcolor"
   menu
